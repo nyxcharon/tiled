@@ -7,9 +7,9 @@ Tiled is very flexible, for example there are no restrictions on map size, tile 
 
 
 It was originally written in java, but the orginal writer has since move to using Qt:
+
 https://github.com/bjorn/tiled
 
-Why try to fork the java version?
------------------------------------
+*Why try to fork the java version?*
 I use the java version of tiled in my own work, and is a very vital part of another project I work on, the erebos game engine:
 https://github.com/nyxcharon/erebos
