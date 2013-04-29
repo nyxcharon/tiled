@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package tiled;
 
@@ -9,12 +5,18 @@ import tiled.command.CommandInterpreter;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import tiled.mapeditor.MapEditor;
 import tiled.util.TiledConfiguration;
 
 /**
  *
  * @author upachler
+ * @author nyxcharon
+ * Last Modified 4/29/2013
  */
 public class Main {
     /**
@@ -22,29 +24,66 @@ public class Main {
      *
      * @param args the first argument may be a map file
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
+        
+        boolean themeset=false;
+        //Try to set GTK first, otherwise we'll just use the system theme
+        //TODO: Add a menu entry to let the user pick the theme
+        try 
+        {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.gtk.GTKLookAndFeel");
+            themeset=true;
+        } 
+        catch (ClassNotFoundException ex) {} 
+        catch (InstantiationException ex) {} 
+        catch (IllegalAccessException ex) {} 
+        catch (UnsupportedLookAndFeelException ex) {}
+        
+        if(!themeset)
+        {
+            try 
+            {
+                UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName());
+            } 
+           catch (ClassNotFoundException ex) {} 
+           catch (InstantiationException ex) {} 
+           catch (IllegalAccessException ex) {} 
+           catch (UnsupportedLookAndFeelException ex) {}
+        }
         
         
-        if(args.length > 0){
-            if(args[0].equals("-commandmode")){
+        if(args.length > 0)
+        {
+            if(args[0].equals("-commandmode"))
+            {
                 CommandInterpreter i = new CommandInterpreter();
                 int result = i.interpret(args, 1);
                 System.exit(result);
-            } else if(args[0].equals("-?") || args[0].equals("-help")){
+            } 
+            else if(args[0].equals("-?") || args[0].equals("-help"))
+            {
                 printHelpMessage();
-            } else {
+            } 
+            else 
+            {
                 File file = new File(args[0]);
-                try {
+                try 
+                {
                     String path = file.getCanonicalPath();
                     MapEditor editor = new MapEditor();
                     editor.loadMap(path);
-                } catch (IOException ex) {
+                } 
+                catch (IOException ex) 
+                {
                 }
             }
         }
-        else{
+        else
+        {
             MapEditor editor = new MapEditor();
-            if (TiledConfiguration.node("io").getBoolean("autoOpenLast", false)) {
+            if (TiledConfiguration.node("io").getBoolean("autoOpenLast", false)) 
+            {
                 // Load last map if it still exists
                 java.util.List<String> recent = TiledConfiguration.getRecentFiles();
                 if (!recent.isEmpty()) {
@@ -57,7 +96,8 @@ public class Main {
         }
     }
 
-    private static void printHelpMessage() {
+    private static void printHelpMessage() 
+    {
         PrintStream o = System.out;
         o.println();
         o.println("Start tiled with no parameters to just start the editor.\n" +
