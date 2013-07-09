@@ -10,8 +10,21 @@ It was originally written in java, but the orginal writer has since move to usin
 
 https://github.com/bjorn/tiled
 
-*Why try to fork the java version?*
+*Why continue development on the java version?*
 
 I use the java version of tiled in my own work, and is a very vital part of another project I work on, the erebos game engine:
 
-https://github.com/nyxcharon/erebos
+http://blackbox-software.org/erebos
+
+As such, the goal is to turn tiled into a full blown map editor and level designer. This map or level can then be exported and used directely in the [EDE](https://github.com/nyxcharon/erebos-ide) for full intergration with Erebos.
+
+TODO List:
+*Clean up UI
+*Preview Mode
+*AI
+    *Define Path
+    *Set Text
+    *Set Animation
+*Export Map
+
+
