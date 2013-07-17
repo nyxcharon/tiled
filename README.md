@@ -14,6 +14,8 @@ TODO List:
 
 - Clean up UI
 - Preview Mode
+    - Map Preview
+    - Live Preview with AI
 - AI
     - Define Path
     - Set Text
