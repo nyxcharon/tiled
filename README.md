@@ -19,6 +19,8 @@ TODO List:
     - Set Text
     - Set Animation
 - Export Map
+- Code Tab
+- Map XML Tab
 
 
 Misc
@@ -27,5 +29,5 @@ It was originally written in java, but the [orginal](https://github.com/bjorn/ti
 
 *Why continue development on the java version?*
 
-I use the java version of tiled in my own work, and is a very vital part of another project I work on, the [erebos](http://blackbox-software.org/erebos) game engine:
+I use the java version of tiled in my own work, and is a very vital part of another project I work on, the [erebos](http://blackbox-software.org/erebos) game engine.
 
